@@ -1,0 +1,39 @@
+ {% extends "enroll/base.html" %} 
+ {% block  content %}
+ 
+ <div class="row d-flex">
+    <div class="col-sm-4">
+        <form action="" method="post">
+            {% csrf_token %}
+              {{form.as_p}}
+              <button type="submit" class="btn btn-outline-secondary">Add</button>
+           </form>
+    </div>
+    <div class="col-sm-8">
+        <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for user in users %}
+                <tr>
+                  <td>{{ user.name }}</td>
+                  <td>{{ user.email }}</td>
+                  <td>
+                    <a href="" class="btn btn-success">Update</a>
+                    <a href="" class="btn btn-success">Delete</a>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+    </div>
+ </div>
+ {% endblock   %}
+ 
+ 
+ 
